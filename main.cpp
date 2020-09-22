@@ -1,43 +1,37 @@
 #include <iostream>
 using namespace std;
 
-// Function prototypes
+// Declare enum with 4 states
+enum PlayerStatus 
+  {
+    PS_Crouching,
+    PS_Walking,
+    PS_Sprinting,
+    PS_Idle
+  };
 
-// Welcome message to user
-void Welcome();
-
-// Function to hold y or n
-char GetYesNo();
-
-// Function to return y or no based on user input of y or n
-void PrintResponse(char responseToPrint);
-
-
-int main() {
+int main() 
+{
   
-  Welcome();
+  cout << " --- Enums Practice 1 ---" << endl;
 
-  int answer = GetYesNo();
-  PrintResponse(answer);
+  // Declaring the enum to variable status
+  PlayerStatus status;
 
-}
+  // Assigning PS_Crouching to variable status
+  status = PS_Crouching;
 
-void Welcome()
-{
-  cout << "Welcome!" << endl;
-}
+  // intentionally setting the condition to PS_Sprinting instead of PS_Crouching
+  if (status == PS_Sprinting) 
+  {
+    cout << "The Player Status is crouching!" << endl;
+  } 
+    
+  else 
+  {
+    cout << 
+      "The Player Status is set to something else! Please check the condition." 
+    << endl;
+  }
 
-char GetYesNo()
-{
-  cout << "Please enter y or n" << endl;
-
-  char response;
-  cin >> response;
-
-  return response;
-}
-
-void PrintResponse(char responseToPrint)
-{
-  cout << "You entered: " << responseToPrint << endl;
 }

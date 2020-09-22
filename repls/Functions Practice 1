@@ -1,35 +1,35 @@
 #include <iostream>
 using namespace std;
 
+// Goal: Simple program that returns a single char on user input
+
 // Function prototypes
 
-// Welcome message to user
 void Welcome();
-
-// Function to hold y or n
-char GetYesNo();
-
-// Function to return y or no based on user input of y or n
-void PrintResponse(char responseToPrint);
+char GetUserInput();
+void ReturnUserInput(char responseToPrint);
 
 
-int main() {
-  
-  Welcome();
+int main()
+{
 
-  int answer = GetYesNo();
-  PrintResponse(answer);
+Welcome();
+
+int answer = GetUserInput();
+ReturnUserInput(answer);
 
 }
+
+// Function Definitions
 
 void Welcome()
 {
   cout << "Welcome!" << endl;
 }
 
-char GetYesNo()
+char GetUserInput()
 {
-  cout << "Please enter y or n" << endl;
+  cout << "Please enter Y or N" << endl;
 
   char response;
   cin >> response;
@@ -37,7 +37,7 @@ char GetYesNo()
   return response;
 }
 
-void PrintResponse(char responseToPrint)
+void ReturnUserInput(char responseToPrint)
 {
   cout << "You entered: " << responseToPrint << endl;
 }
