@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+// Goal: Printing one of the switch statement cases to the screen
+
+// Switch statement definition
+int status = 3;
+
+int main()
+{
+  switch (status)
+  {
+    case 1:
+    cout << "One!" << endl;
+    break;
+
+    case 2:
+    cout << "Two!" << endl;
+    break;
+
+    case 3:
+    cout << "Three!" << endl;
+    break;
+
+    case 4:
+    cout << "Four!" << endl;
+    break;
+  }
+}
