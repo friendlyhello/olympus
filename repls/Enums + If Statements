@@ -17,14 +17,18 @@ const float CrouchSpeed = 350.f;
 
 // function prototype
 
-void UpdateMovementSpeed();
+void UpdateMovementSpeed(PlayerStatus P_Status, float& speed);
 
 int main()
 {
 
   float MovementSpeed;
 
-  PlayerStatus status = PS_Walking;
+  PlayerStatus status = PS_Crouching;
+
+  UpdateMovementSpeed(status, MovementSpeed);
+
+  cout << "MovementSpeed = " << MovementSpeed << endl;
 
 }
 

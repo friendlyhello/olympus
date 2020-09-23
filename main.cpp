@@ -17,7 +17,7 @@ const float CrouchSpeed = 350.f;
 
 // function prototype
 
-void UpdateMovementSpeed();
+void UpdateMovementSpeed(PlayerStatus P_Status, float& speed);
 
 int main()
 {
@@ -26,24 +26,29 @@ int main()
 
   PlayerStatus status = PS_Walking;
 
+  UpdateMovementSpeed(status, MovementSpeed);
+
+  cout << "MovementSpeed = " << MovementSpeed << endl;
+
 }
 
 // function definition
 
 void UpdateMovementSpeed(PlayerStatus P_Status, float& speed)
 {
-  if (P_Status == PS_Running) 
+
+  switch (P_Status)
   {
+    case PS_Running:
     speed = RunSpeed;
-  }
+    break;
 
-  else if(P_Status == PS_Walking)
-  {
+    case PS_Walking:
     speed = WalkSpeed;
-  }
+    break;
 
-  else if(P_Status == PS_Crouching)
-  {
+    case PS_Crouching:
     speed = CrouchSpeed;
   }
+
 }
