@@ -15,7 +15,8 @@ int main()
   // initialize the pointer with an address
   healPointer = &heal;
 
-  // print out the address and the variable stored in that address
+  // print out the address healPointer points to, as well as the 
+  // variable values stored in that address
 
   // address of healPointer
   cout << "The address healPointer points to is: " << healPointer << endl;
