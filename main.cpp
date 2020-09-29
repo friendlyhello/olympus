@@ -1,39 +1,36 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
-
-// --- UNDERSTANDING POINTERS ---
 
 int main()
 {
-  // int number initialized to a value of 100
-  int number = 100;
 
-  // Pointer of type "pointer to int" named numberPtr
-  int* numberPtr;
+  cout << " --- Pointers Practice! --- " << endl;
 
-  // Initialize numberPtr with the "address of" a ("address of" operator is &)
-  numberPtr = &number;
+  // declare a variable with some value
+  int heal = 50;
 
-  // Print the address of numberPtr
-  cout << "The address for numberPtr is: " << numberPtr << endl;
+  // create a pointer of type int
+  int* healPointer;
 
-  // Print the value pointed to the address of numberPointer with the 
-  // "dereference" operator *, which goes before numberPtr
-  cout << "The value for numberPtr is: " << *numberPtr << endl;
+  // initialize the pointer with an address
+  healPointer = &heal;
 
-  // GOAL: Create a new variable and assign it to the address of the new variable
+  // print out the address and the variable stored in that address
 
-  // New variable
-  int secondNumber = 50;
+  // address of healPointer
+  cout << "The address healPointer points to is: " << healPointer << endl;
 
-  // Assign "address of" (which is the & operator) numberPtr to new variable secondNumber
-  numberPtr = &secondNumber;
+  // variable stored in the address of healPointer
+  cout << "The pointer healPointer now points to the address that stores the variable heal: " << *healPointer << endl;
 
-  // Print out the new address of numberPtr
-  cout << "The new address of numberPtr is: " << numberPtr << endl;
+  // Assign another variable to the address of healPointer
 
-  // Print dereference numberPtr with new variable value
-  cout << "The new value for numberPtr is: " << *numberPtr << endl;
+  // create another variable with some value
+  int life = 100;
+
+  // assign life to healPointer
+  healPointer = &life;
+
+  // print out life variable from the address of healPointer
+  cout << "The pointer healPointer now points to the address that stores the variable life: "  << *healPointer << endl;
 }
