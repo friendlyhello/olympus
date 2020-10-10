@@ -21,16 +21,15 @@ int main()
   cout << "The address healPointer points to is: " << healPointer << endl;
 
   // variable stored in the address of healPointer
+  // placing the * before the pointer variable name is called "dereferencing"
   cout << "The pointer healPointer now points to the address that stores the variable heal: " << *healPointer << endl;
 
   // Assign another variable to the address of healPointer
 
-  // create another variable with some value
-  int life = 100;
-
-  // assign life to healPointer
-  healPointer = &life;
+  // dereferencing healPointer to hold a new value - notice * is now on the left side 
+  // of healPointer
+  *healPointer = 100;
 
   // print out life variable from the address of healPointer
-  cout << "The pointer healPointer now points to the address that stores the variable life: "  << *healPointer << endl;
+  cout << "The pointer healPointer now has a new value of: "  << *healPointer << endl;
 }
