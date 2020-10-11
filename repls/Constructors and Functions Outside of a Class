@@ -1,0 +1,50 @@
+#include <iostream> 
+using namespace std;
+
+// The Dog Class
+class Dog
+{
+  public:
+
+  // constructor 
+  Dog();
+
+  // member variables
+  string Name;
+  float Age;
+  int Health;
+
+  // function
+  void Bark();
+
+};
+
+int main()
+{
+
+  Dog Cid;
+
+}
+
+  // You can define the constructor outside of the body of the class by "fully qualifying"
+  // the constructor's name:
+
+  // constructor does not require a return type such as  void, int, etc
+  Dog::Dog()
+  {
+    // You can also define member variables within the constructor
+    Name = "Shadow";
+    Age = 12.f;
+    Health = 100;
+
+    Bark();
+  }
+
+  // You can also define functions (from inside a class - in this case: Bark();) outside
+  // of the class, by again, "fully qualifying" the Bark() function name
+
+  // :: is known as the scope resolution operator
+  void Dog::Bark()
+  {
+    cout << "wau wau" << endl;
+  }
