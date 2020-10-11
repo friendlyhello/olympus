@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+// Second struct for nesting
+struct Location
+{
+  float X;
+  float Y;
+  float Z;
+};
+
 // Struct Definition (custom datatype)
 struct Player
 {
@@ -13,6 +21,9 @@ struct Player
   int Health;
   float Damage;
   float Stamina;
+
+  // second nested struct
+  Location location = {0.f, 0.f, 0.f};
 
   void TakeDamage(float dmg)
   {
@@ -27,6 +38,14 @@ struct Player
       }
 
     return Level;
+  }
+
+  // second nested struct function
+  void DisplayLocation()
+  {
+    cout << "Location X: " << location.X << endl;
+    cout << "Location Y: " << location.Y << endl;
+    cout << "Location Z: " << location.Z << endl;
   }
 };
 
@@ -54,4 +73,15 @@ int main ()
 
   // Print Health after taking damage
   cout << "Player One's HEALTH is now " << playerOne.Health << endl;
+
+  // Print second nested struct function DisplayLocation()
+  playerOne.DisplayLocation();
+
+  // A new struct, declared on the same line, including the nested location struct in its
+  // own initializer list 
+  Player playerTwo = {"Locke", 12, 100, 45.5f, 7.f, {10.f, 100.f, 535.f}};
+
+  // Print Player Two's location
+  cout << "Player Two: " << playerTwo.Name << " is located at:" << endl; 
+  playerTwo.DisplayLocation(); 
 }
