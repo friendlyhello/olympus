@@ -1,9 +1,12 @@
 #include <iostream>
 using namespace std;
 
+// Struct Definition (custom datatype)
 struct Player
 {
-
+  // NOTE: It is not recommended to access the member variables directly within a struct
+  //       using dot notatation.
+  //       It is best to use FUNCTIONS, as seen below with TakeDamage() and GetLevel() 
   string Name;
 
   int Level;
@@ -18,12 +21,37 @@ struct Player
 
   int GetLevel()
   {
+    if(Level >= 10)
+      {
+        cout << "Player Level is greater than 10! \n";
+      }
+
     return Level;
   }
-
 };
 
 int main ()
 {
+  // define struct of type player
+  Player playerOne;
 
+  // define Player variables
+  playerOne.Name = "Celes";
+  playerOne.Level = 12;
+  playerOne.Health = 100;
+  playerOne.Damage = 35.5f;
+  playerOne.Stamina = 10.5f;
+
+  // Get Level with a function
+  // BE MINDFUL OF "FLOW OF CONTROL" HERE
+  cout << "Player One Level is: " << playerOne.GetLevel() << endl;
+
+  // Call function to apply damage
+  playerOne.TakeDamage(10.f);
+
+  // Print damage taken from calling  function
+  cout << "Player One takes " << 10.f << " damage!" << endl;
+
+  // Print Health after taking damage
+  cout << "Player One's HEALTH is now " << playerOne.Health << endl;
 }
