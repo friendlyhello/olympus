@@ -45,13 +45,19 @@ Animal::Animal()
   NumberOfLimbs = 4;
 }
 
-//defining second constructor with function overload outside of class
-Animal::Animal(string name, int age, int numOfLimbs)
-{
-  Name = name;
-  Age = age;
-  NumberOfLimbs = numOfLimbs;
-}
+// //hiding this for now to practice with "initializer list"
+
+// //defining second constructor with function overload outside of class
+// Animal::Animal(string name, int age, int numOfLimbs)
+// {
+//   Name = name;
+//   Age = age;
+//   NumberOfLimbs = numOfLimbs;
+// }
+
+//defining second constructor with function overload outside of class using an
+// "initializer list"
+Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs){}
 
 // defining function outside of class
 void Animal::Report()
