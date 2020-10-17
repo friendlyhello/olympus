@@ -57,7 +57,11 @@ Animal::Animal()
 
 //defining second constructor with function overload outside of class using an
 // "initializer list"
-Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs){}
+Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
+{
+  //you can still call things from inside this body, for example"
+  Report();
+}
 
 // defining function outside of class
 void Animal::Report()
