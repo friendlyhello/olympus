@@ -19,19 +19,29 @@ class Animal
   void Report();
 };
 
-// ---! create new class that inherits from Animal class !---
+// Create child class from parent class Animal
 class Dog : public Animal
 {
   public:
+
+  //constructor for Dog child class of Animal parent class
+  Dog();
+  Dog(string name, int age, int numOfLimbs);
+
+  void Speak();
+
 };
 
 
 int main()
 {
   
+ Dog dog("Shadow", 5, 5); 
 
+ dog.Speak();
 
 }
+
 
 // CONSTRUCTORS -->
 
@@ -45,7 +55,7 @@ Animal::Animal()
   NumberOfLimbs = 4;
 }
 
-// //hiding this for now to practice with "initializer list"
+// //hiding this first constructor for now to practice with "initializer list"
 
 // //defining second constructor with function overload outside of class
 // Animal::Animal(string name, int age, int numOfLimbs)
@@ -59,8 +69,19 @@ Animal::Animal()
 // "initializer list"
 Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
 {
-  //you can still call things from inside this body, for example"
+  //you can still call things from inside this body, for example:
   Report();
+}
+
+//new constructor for Dog child class
+Dog::Dog()
+{
+  cout << "A DOG is born!" << endl;
+}
+
+Dog::Dog(string name, int age, int numOfLimbs)
+{
+  Animal(name, age, numOfLimbs);
 }
 
 // end  CONSTRUCTORS
@@ -76,6 +97,12 @@ void Animal::Report()
   cout << "Name: " << Name << endl;
   cout << "Age: " << Age << endl;
   cout << "Number of Limbs: " << NumberOfLimbs << endl; 
+  cout << endl;
+}
+
+void Dog::Speak()
+{
+  cout << "Wau wau!" << endl;
 }
 
 // end FUNCTIONS

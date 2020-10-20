@@ -20,10 +20,10 @@ class Animal
 };
 
 // Create child class from parent class Animal
-
 class Dog : public Animal
 {
   public:
+
   //constructor for Dog child class of Animal parent class
   Dog();
   Dog(string name, int age, int numOfLimbs);
@@ -69,7 +69,7 @@ Animal::Animal()
 // "initializer list"
 Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
 {
-  //you can still call things from inside this body, for example"
+  //you can still call things from inside this body, for example:
   Report();
 }
 
