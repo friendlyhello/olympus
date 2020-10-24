@@ -55,33 +55,24 @@ Animal::Animal()
   NumberOfLimbs = 4;
 }
 
-// //hiding this first constructor for now to practice with "initializer list"
 
-// //defining second constructor with function overload outside of class
-// Animal::Animal(string name, int age, int numOfLimbs)
-// {
-//   Name = name;
-//   Age = age;
-//   NumberOfLimbs = numOfLimbs;
-// }
-
-//defining second constructor with function overload outside of class using an
-// "initializer list"
+//  --> Defining second constructor with function overload outside of class using 
+//      an "initializer list"
 Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
 {
   //you can still call things from inside this body, for example:
   Report();
 }
 
-//new constructor for Dog child class
+//new constructor for Dog child class ("fully qualify" with ::)
 Dog::Dog()
 {
   cout << "A DOG is born!" << endl;
 }
 
-Dog::Dog(string name, int age, int numOfLimbs)
+Dog::Dog(string name, int age, int numOfLimbs) : Animal(name, age, numOfLimbs)
 {
-  Animal(name, age, numOfLimbs);
+  
 }
 
 // end  CONSTRUCTORS
