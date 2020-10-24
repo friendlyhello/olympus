@@ -37,6 +37,7 @@ class Corgi : public Dog
   public:
     //constructor
     Corgi();
+    Corgi(string name, int age, int numOfLimbs);
     
     //function
     void Fetch();
@@ -46,9 +47,9 @@ class Corgi : public Dog
 int main()
 {
   
- Corgi brown;
+ Corgi corgi("Happy", 5, 4);
 
- brown.Speak();
+ corgi.Fetch();
 
 }
 
@@ -87,7 +88,7 @@ Dog::Dog(string name, int age, int numOfLimbs) : Animal(name, age, numOfLimbs)
   
 }
 
-Corgi::Corgi()
+Corgi::Corgi(string name, int age, int numOfLimbs) : Dog(name, age, numOfLimbs)
 {
   cout << "I'm a corgi!" << endl;
 }
