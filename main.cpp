@@ -32,13 +32,23 @@ class Dog : public Animal
 
 };
 
+class Corgi : public Dog
+{
+  public:
+    //constructor
+    Corgi();
+    
+    //function
+    void Fetch();
+
+};
 
 int main()
 {
   
- Dog dog("Shadow", 5, 5); 
+ Corgi brown;
 
- dog.Speak();
+ brown.Speak();
 
 }
 
@@ -70,9 +80,16 @@ Dog::Dog()
   cout << "A DOG is born!" << endl;
 }
 
+//  --> Defining second constructor with function overload outside of class using 
+//      an "initializer list"
 Dog::Dog(string name, int age, int numOfLimbs) : Animal(name, age, numOfLimbs)
 {
   
+}
+
+Corgi::Corgi()
+{
+  cout << "I'm a corgi!" << endl;
 }
 
 // end  CONSTRUCTORS
@@ -96,4 +113,8 @@ void Dog::Speak()
   cout << "Wau wau!" << endl;
 }
 
+void Corgi::Fetch()
+{
+  cout << "I got it!" << endl;
+}
 // end FUNCTIONS
