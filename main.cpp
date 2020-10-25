@@ -1,121 +1,46 @@
 #include <iostream>
 using namespace std;
 
-//create class
-class Animal
+// Classes
+
+class Creature
 {
   public:
+  // Constructor
+  Creature();
 
-  //constructor
-  Animal();
-  Animal(string name, int age, int numOfLimbs);
+  // --> Getters and Setters PRACTICE!! FINALLY!! \(;>o<)/
 
-  //values
+  // Setter function
+  void SetName(string name);
+
+  // Getter function
+  void GetName();
+
+  private:
+  // Values
   string Name;
-  int Age;
-  int NumberOfLimbs;
-  
-  //function
-  void Report();
-};
-
-// Create child class from parent class Animal
-class Dog : public Animal
-{
-  public:
-
-  //constructor for Dog child class of Animal parent class
-  Dog();
-  Dog(string name, int age, int numOfLimbs);
-
-  void Speak();
+  float Health;
 
 };
 
-class Corgi : public Dog
-{
-  public:
-    //constructor
-    Corgi();
-    Corgi(string name, int age, int numOfLimbs);
-    
-    //function
-    void Fetch();
-
-};
 
 int main()
 {
-  
- Corgi corgi("Happy", 5, 4);
 
- corgi.Fetch();
+  Creature goblin;
 
 }
 
+// --> Constructors
 
-// CONSTRUCTORS -->
-
-//defining first constructor outside of class
-Animal::Animal()
+Creature::Creature()
 {
-  cout << "An ANIMAL is born!" << endl;
-
-  Name = "DEFAULT";
-  Age = 2;
-  NumberOfLimbs = 4;
+  cout << "A CREATURE has been born!" << endl;
 }
 
-
-//  --> Defining second constructor with function overload outside of class using 
-//      an "initializer list"
-Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
+// --> Functions
+void Creature::SetName(string name)
 {
-  //you can still call things from inside this body, for example:
-  Report();
+Name = name;
 }
-
-//new constructor for Dog child class ("fully qualify" with ::)
-Dog::Dog()
-{
-  cout << "A DOG is born!" << endl;
-}
-
-//  --> Defining second constructor with function overload outside of class using 
-//      an "initializer list"
-Dog::Dog(string name, int age, int numOfLimbs) : Animal(name, age, numOfLimbs)
-{
-  
-}
-
-Corgi::Corgi(string name, int age, int numOfLimbs) : Dog(name, age, numOfLimbs)
-{
-  cout << "I'm a corgi!" << endl;
-}
-
-// end  CONSTRUCTORS
-
-
-
-// FUNCTIONS -->
-
-// defining function outside of class
-void Animal::Report()
-{
-  cout << endl;
-  cout << "Name: " << Name << endl;
-  cout << "Age: " << Age << endl;
-  cout << "Number of Limbs: " << NumberOfLimbs << endl; 
-  cout << endl;
-}
-
-void Dog::Speak()
-{
-  cout << "Wau wau!" << endl;
-}
-
-void Corgi::Fetch()
-{
-  cout << "I got it!" << endl;
-}
-// end FUNCTIONS
