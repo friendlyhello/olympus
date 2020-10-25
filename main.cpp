@@ -41,11 +41,14 @@ class Creature
 class Goblin : public Creature
 {
 public:
+  //constructor
   Goblin();
 
+  //getter access function
   int GetNumberOfLimbs();
 
 protected:
+  //protected variable
   int NumberOfLimbs;
 };
 
@@ -56,10 +59,8 @@ int main()
   Creature orc;
 
   // --> use Getters and Setters
-
   // Getter
   orc.SetName("Bobo");
-
   // Use Setter to print name to screen
   cout << "My name is " << orc.GetName() << "!" << endl;
   cout << "Health: " << orc.GetHealth() << endl;
