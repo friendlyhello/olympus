@@ -33,10 +33,10 @@ int main()
   // --> use Getters and Setters
 
   // Getter
-  goblin.SetName("Good boy Gobby");
+  goblin.SetName("Gobby");
 
   // Use Setter to print name to screen
-  cout << "My name is " << goblin.GetName() << endl;
+  cout << "My name is " << goblin.GetName() << "!" << endl;
 
 }
 
