@@ -50,7 +50,6 @@ int main()
 
  goblin.TakeDamage(30.5f);
 
- cout << "Health: " << goblin.GetHealth() << endl;
 }
 
 // --> Constructors
@@ -94,6 +93,7 @@ void Creature::TakeDamage(float damage)
   else 
   {
     Health -= damage;
+    cout << "ouch!" << endl;
   }
 
 cout << "Health: " << GetHealth() << endl;
