@@ -18,8 +18,8 @@ class Creature
   string GetName();
 
   // --> 2) Getters and Setters for Health function
-  
-  
+  float GetHealth();
+
   
   // Take Damage functiom
   void TakeDamage(float damage);
@@ -44,7 +44,13 @@ int main()
 
   // Use Setter to print name to screen
   cout << "My name is " << goblin.GetName() << "!" << endl;
+  cout << "Health: " << goblin.GetHealth() << endl;
 
+  cout << goblin.GetName() << " takes damage!" << endl;
+
+ goblin.TakeDamage(30.5f);
+
+ cout << "Health: " << goblin.GetHealth() << endl;
 }
 
 // --> Constructors
@@ -52,6 +58,7 @@ int main()
 Creature::Creature()
 {
   cout << "A CREATURE is born!" << endl;
+  Health = 100;
 }
 
 // --> Function Definitions
@@ -68,7 +75,13 @@ string Creature::GetName()
   return Name;
 }
 
-// 2) Getter and Setter for take damage
+// 2) Getter and Setter for GetHealth
+float Creature::GetHealth()
+{
+  return Health;
+}
+
+// 3) Take damage function
 void Creature::TakeDamage(float damage)
 {
   float Total;
@@ -80,7 +93,7 @@ void Creature::TakeDamage(float damage)
   }
   else 
   {
-    Health += damage;
+    Health -= damage;
   }
 
 cout << "Health: " << GetHealth() << endl;
