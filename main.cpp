@@ -9,15 +9,23 @@ using namespace std;
 struct Character 
 {
   //constructor
-  Character()
-  {
-    Name = "Celes";
-    Health = 100.f;
-  }
+  Character();
+
+  void Greeting();
 
   string Name;
   float Health;
 };
+Character::Character()
+    {
+      Name = "Celes";
+      Health = 100.f;
+    }
+
+void Character::Greeting()
+{
+  cout << "A hero appears!" << endl;
+}
 
 int main()
 {
@@ -35,6 +43,7 @@ int main()
     // The delete keyword frees up the memory allocation in the heap. YOU MUST DELETE DATA FROM THE HEAP in order to not have garbage data or cause memory leaks.
 
     cout << PtrToChar->Name << endl;
+    PtrToChar->Greeting();
 
     delete PtrToChar;
   }
