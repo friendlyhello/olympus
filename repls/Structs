@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Struct Definition (custom datatype)
+// Struct Definition (custom data type)
 struct Player
 {
   // NOTE: It is not recommended to access the member variables directly within a struct
