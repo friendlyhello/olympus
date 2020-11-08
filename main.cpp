@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 // -- Dynamic Variables Exercise --
@@ -9,24 +8,36 @@ using namespace std;
 //struct
 struct Character 
 {
+  //constructor
+  Character()
+  {
+    Name = "Celes";
+    Health = 100.f;
+  }
+
   string Name;
   float Health;
 };
 
 int main()
 {
-//create pointer of type Character struct
-Character* PtrToChar = new Character();
-// This pointer to Character struct (PtrToChar) is now allocated to the -heap-
+  for (int i = 0; i < 5; i++)
+  {
+    //create pointer of type Character struct
+    Character* PtrToChar = new Character();
 
-// NOTICE 'new Character();' struct LOOKS LIKE A FUNCTION. It essentially is. It is also a (default) constructor which automatically holds values of 0.
+    // This pointer to Character struct (PtrToChar) is now allocated to the -heap- taking up dynamic memory at run time.
 
-PtrToChar->Name = "Mog";
+    // NOTICE 'new Character();' struct LOOKS LIKE A FUNCTION. It essentially is. It is also a (default) constructor which automatically holds values of 0.
 
-// I am responsible for memory allocation. If creating a new dynamic value for the heap, I must also delete it using the 'delete' keyword.
+    // I am responsible for memory allocation. If creating a new dynamic value for the heap, I must also delete it using the 'delete' keyword.
 
+    // The delete keyword frees up the memory allocation in the heap. YOU MUST DELETE DATA FROM THE HEAP in order to not have garbage data or cause memory leaks.
 
+    cout << PtrToChar->Name << endl;
 
+    delete PtrToChar;
+  }
 }
 
 
