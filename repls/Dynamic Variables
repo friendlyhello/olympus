@@ -16,6 +16,7 @@ struct Character
   string Name;
   float Health;
 };
+
 Character::Character()
     {
       Name = "Celes";
