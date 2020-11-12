@@ -57,4 +57,3 @@ Character::~Character()
   delete CharacterName;
   delete CharacterHealth;
 }
-
