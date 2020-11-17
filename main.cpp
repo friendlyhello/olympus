@@ -36,7 +36,7 @@ Character::Character()
 {
   cout << "A Character was created!\n";
 
-  CharacterName = new string("Moogle");
+  CharacterName = new string("Celes");
   CharacterHealth = new float(100.f);
 
     cout << "Character Name: " << *CharacterName << endl;
