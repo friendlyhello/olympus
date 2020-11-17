@@ -1,60 +1,100 @@
 #include <iostream>
 using namespace std;
 
-// -- Destructors Practice! --
+// Classes
 
-class Character
+class Creature
 {
   public:
-  //constructor
-  Character();
+  // Constructor
+  Creature();
 
-  //destructor
-  ~Character();
+  // --> Getters and Setters PRACTICE!! FINALLY!! \(;>o<)/
 
-  //  Pointer member variables that will be allocated to 
-  //  the heap.
-  string* CharacterName;
-  float* CharacterHealth;
+  // --> 1) Getters and Setters for setting a name for an object
+  // Setter function
+  void SetName(string name);
+  // Getter function
+  string GetName();
+
+  // --> 2) Getters and Setters for Health function
+  float GetHealth();
+
+  
+  // Take Damage functiom
+  void TakeDamage(float damage);
+
+  private:
+  // Values
+  string Name;
+  float Health;
 
 };
 
+
 int main()
 {
-// Create new object dynamically using a pointer
-Character* ptrToChar = new Character;
+  // Create class object
+  Creature goblin;
 
-// Two things happen here:
-// 1. Delete keyword deletes pointer (dynamic memory)
-// 2. Desctructor gets called with delete keyword
-delete ptrToChar;
+  // --> use Getters and Setters
+
+  // Getter
+  goblin.SetName("Gobby");
+
+  // Use Setter to print name to screen
+  cout << "My name is " << goblin.GetName() << "!" << endl;
+  cout << "Health: " << goblin.GetHealth() << endl;
+
+  cout << goblin.GetName() << " takes damage!" << endl;
+
+ goblin.TakeDamage(30.5f);
 
 }
 
-//declaring constructor outside of the class
-Character::Character()
+// --> Constructors
+
+Creature::Creature()
 {
-  cout << "A Character was created!\n";
-
-  CharacterName = new string("Celes");
-  CharacterHealth = new float(100.f);
-
-    cout << "Character Name: " << *CharacterName << endl;
-    cout << "Character Health: " << *CharacterHealth << endl;
+  cout << "A CREATURE is born!" << endl;
+  Health = 100;
 }
 
-//declaring destructor outside of the class
-Character::~Character()
+// --> Function Definitions
+
+// 1) Getter and Setter for Set Name
+// Setter Function - is in the scope of the Creature class
+void Creature::SetName(string name)
 {
-  cout << "A Character was deleted!\n";
-
-// !-- YOU ARE RESPONSIBLE FOR MEMORY ALLOCATION --!
-
-// Delete dynamic member variables or it will result
-// in garbage data just hanging out in the heap!
-
-//delete dynamic member variables
-  delete CharacterName;
-  delete CharacterHealth;
+Name = name;
+}
+// Getter Function - is in the scope of the Creature class
+string Creature::GetName()
+{
+  return Name;
 }
 
+// 2) Getter and Setter for GetHealth
+float Creature::GetHealth()
+{
+  return Health;
+}
+
+// 3) Take damage function
+void Creature::TakeDamage(float damage)
+{
+  float Total;
+  Total = Health - damage;
+
+  if(Total <= 0.f)
+  {
+    cout << GetName() << "has died! " << endl;
+  }
+  else 
+  {
+    Health -= damage;
+    cout << "ouch!" << endl;
+  }
+
+cout << "Health: " << GetHealth() << endl;
+}
