@@ -16,7 +16,7 @@ class Actor : public Object
 };
 
 //Another Child class
-class Pawn : public Actor
+class Pawn : public Object
 {
   public:
   virtual void BeginPlay() override;
@@ -24,23 +24,19 @@ class Pawn : public Actor
 
 int main()
 {
+  //create new dynamic object (using a pointer)
+  Object* obj = new Object;
+  //call function
+  obj->BeginPlay();
 
-
-// COMMENTING OUT OBJECT AND  ACTOR FOR CALLING VIRTAUL FUNCTIONS FROM OTHER CLASSES EXAMPLE:
-
-  // //create new dynamic object (using a pointer)
-  // Object* obj = new Object;
-  // //call function
-  // obj->BeginPlay();
-
-  // Actor* act = new Actor;
-  // act->BeginPlay();
+  Actor* act = new Actor;
+  act->BeginPlay();
 
   Pawn* pwn = new Pawn;
   pwn->BeginPlay();
 
-  // delete obj;
-  //delete act;
+  delete obj;
+  delete act;
   delete pwn;
 }
 
@@ -53,13 +49,9 @@ void Object::BeginPlay()
 void Actor::BeginPlay()
 {
   cout << "Actor begin play!\n";
-  Object::BeginPlay();
 }
 
 void Pawn::BeginPlay()
 {
   cout << "Pawn begin play!\n";
-
-  Object::BeginPlay();  
-  Actor::BeginPlay();
 }
