@@ -4,19 +4,19 @@ using namespace std;
 //class
 class Object
 {
-public:
-void BeginPlay();
+  public:
+  void BeginPlay();
 };
 
-int main ()
+int main()
 {
-
-//create new object dynamically (w/pointer)
-Object* obj = new Object;
-obj->BeginPlay();
+  //create new dynamic object (using a pointer)
+  Object* obj = new Object;
+  //call function
+  obj->BeginPlay();
 }
 
-//function declaration
+//function definition  - remember to "fully qualify" the function definition
 void Object::BeginPlay()
 {
   cout << "Start game!\n";
