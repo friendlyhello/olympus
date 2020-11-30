@@ -1,11 +1,25 @@
 #include <iostream>
 using namespace std;
 
-//class
+//Parent Class
 class Object
 {
   public:
-  void BeginPlay();
+  virtual void BeginPlay();
+};
+
+//Child Class
+class Actor : public Object
+{
+  public:
+  virtual void BeginPlay() override;
+};
+
+//Another Child class
+class Pawn : public Object
+{
+  public:
+  virtual void BeginPlay() override;
 };
 
 int main()
@@ -14,10 +28,30 @@ int main()
   Object* obj = new Object;
   //call function
   obj->BeginPlay();
+
+  Actor* act = new Actor;
+  act->BeginPlay();
+
+  Pawn* pwn = new Pawn;
+  pwn->BeginPlay();
+
+  delete obj;
+  delete act;
+  delete pwn;
 }
 
-//function definition  - remember to "fully qualify" the function definition
+//function definition  - remember to "fully qualify"
 void Object::BeginPlay()
 {
-  cout << "Start game!\n";
+  cout << "Object begin play!\n";
+}
+
+void Actor::BeginPlay()
+{
+  cout << "Actor begin play!\n";
+}
+
+void Pawn::BeginPlay()
+{
+  cout << "Pawn begin play!\n";
 }
