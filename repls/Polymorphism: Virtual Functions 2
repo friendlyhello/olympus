@@ -24,24 +24,26 @@ class Pawn : public Actor
 
 int main()
 {
+  Object* Ptr_To_Object = new Object;
 
+  Actor* Ptr_To_Actor = new Actor;
+  
+  Pawn* Ptr_To_Pawn = new Pawn;
+  
+  Object* ObjectArrray[] = {Ptr_To_Object, Ptr_To_Actor, Ptr_To_Pawn};
 
-// COMMENTING OUT OBJECT AND  ACTOR FOR CALLING VIRTAUL FUNCTIONS FROM OTHER CLASSES EXAMPLE:
+  // Loop through the array to see the magic of Polymorphism!
 
-  // //create new dynamic object (using a pointer)
-  // Object* obj = new Object;
-  // //call function
-  // obj->BeginPlay();
+  // Notice how each pointer prints its own function override, all because of the inheritance chain
 
-  // Actor* act = new Actor;
-  // act->BeginPlay();
+  for (int i = 0; i < 3; i++)
+  {
+    ObjectArrray[i]->BeginPlay();
+  }
 
-  Pawn* pwn = new Pawn;
-  pwn->BeginPlay();
-
-  // delete obj;
-  //delete act;
-  delete pwn;
+  delete Ptr_To_Object;
+  delete Ptr_To_Actor;
+  delete Ptr_To_Pawn;
 }
 
 //function definition  - remember to "fully qualify"
@@ -53,13 +55,9 @@ void Object::BeginPlay()
 void Actor::BeginPlay()
 {
   cout << "Actor begin play!\n";
-  Object::BeginPlay();
 }
 
 void Pawn::BeginPlay()
 {
   cout << "Pawn begin play!\n";
-
-  Object::BeginPlay();  
-  Actor::BeginPlay();
 }
