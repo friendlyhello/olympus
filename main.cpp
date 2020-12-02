@@ -63,10 +63,10 @@ Object* Ptr_To_Object = new Object;
     //ObjectArrray[i]->BeginPlay(); (hide this for now)
 
     // !-- CASTING EXAMPLE STARTS HERE!!! --!
-    // 1. Create temporary new object
+    // 1. Create temporary new object to hold the array
     Object* obj = ObjectArrray[i];
 
-    // 2. Cast to Actor using dynamic_cast function
+    // 2. Cast to Actor* using dynamic_cast function
     Actor* act = dynamic_cast<Actor*>(obj);
     // <type that is being converted to>(what is being converted)
 
@@ -76,7 +76,7 @@ Object* Ptr_To_Object = new Object;
       act->ActorFunction();
     }
 
-    // Now try casting to Pawn!
+    // Now try casting Pawn to obj array!
     Pawn* pwn = dynamic_cast<Pawn*>(obj);
 
     // Check to see if it successful!
