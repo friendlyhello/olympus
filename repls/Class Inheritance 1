@@ -35,7 +35,7 @@ class Dog : public Animal
 
 int main()
 {
-  
+
  Dog dog("Shadow", 5, 5); 
 
  dog.Speak();

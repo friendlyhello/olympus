@@ -1,109 +1,108 @@
 #include <iostream>
 using namespace std;
 
-// CASTING! 
-
-// Derivation chain:
-// Parent
-class Object
+//create class
+class Animal
 {
-public:
-  virtual void BeginPlay();
+  public:
 
-  // Add a function to test casting:
-  void ObjectFunction()
-  {
-    cout << "ObjectFunction() called!\n\n";
-  }
+  //constructor
+  Animal();
+  Animal(string name, int age, int numOfLimbs);
+
+  //values
+  string Name;
+  int Age;
+  int NumberOfLimbs;
+  
+  //function
+  void Report();
 };
 
-// Child
-class Actor : public Object
+// Create child class from parent class Animal
+class Dog : public Animal
 {
-public:
-  virtual void BeginPlay() override;
+  public:
 
-  // Add a function to test casting:
-  void ActorFunction()
-  {
-    cout << "ActorFunction() called!\n\n";
-  }
+  //constructor for Dog child class of Animal parent class
+  Dog();
+  Dog(string name, int age, int numOfLimbs);
+
+  void Speak();
+
 };
 
-// Grandchild
-class Pawn : public Object
-{
-public:
-  virtual void BeginPlay() override;
-
-  // Add a function to test casting:
-  void PawnFunction()
-  {
-    cout << "PawnFunction() called!\n\n";
-  }
-};
 
 int main()
 {
 
-Object* Ptr_To_Object = new Object;
+ Dog dog("Shadow", 5, 5); 
 
-  Actor* Ptr_To_Actor = new Actor;
-  
-  Pawn* Ptr_To_Pawn = new Pawn;
-  
-  Object* ObjectArrray[] = {Ptr_To_Object, Ptr_To_Actor, Ptr_To_Pawn};
+ dog.Speak();
 
-  // Loop through the array to see the magic of Polymorphism!
-
-  // Notice how each pointer prints its own function override, all because of the inheritance chain
-
-  for (int i = 0; i < 3; i++)
-  {
-    //ObjectArrray[i]->BeginPlay(); (hide this for now)
-
-    // !-- CASTING EXAMPLE STARTS HERE!!! --!
-    // 1. Create temporary new object to hold the array
-    Object* obj = ObjectArrray[i];
-
-    // 2. Cast to Actor* using dynamic_cast function
-    Actor* act = dynamic_cast<Actor*>(obj);
-    // <type that is being converted to>(what is being converted)
-
-    // 3. Perform a check to see whether cast was succesful
-    if (act)
-    {
-      act->ActorFunction();
-    }
-
-    // Now try casting Pawn to obj array!
-    Pawn* pwn = dynamic_cast<Pawn*>(obj);
-
-    // Check to see if it successful!
-    if (pwn)
-    {
-      pwn->PawnFunction();
-    }
-
-  }
-
-  delete Ptr_To_Object;
-  delete Ptr_To_Actor;
-  delete Ptr_To_Pawn;
 }
 
-// Function definitions - Remember to "fully qualify"
-void Object::BeginPlay()
+
+// CONSTRUCTORS -->
+
+//defining first constructor outside of class
+Animal::Animal()
 {
-  cout << "Object begin play!\n";
+  cout << "An ANIMAL is born!" << endl;
+
+  Name = "DEFAULT";
+  Age = 2;
+  NumberOfLimbs = 4;
 }
 
-void Actor::BeginPlay()
+// //hiding this first constructor for now to practice with "initializer list"
+
+// //defining second constructor with function overload outside of class
+// Animal::Animal(string name, int age, int numOfLimbs)
+// {
+//   Name = name;
+//   Age = age;
+//   NumberOfLimbs = numOfLimbs;
+// }
+
+//defining second constructor with function overload outside of class using an
+// "initializer list"
+Animal::Animal(string name, int age, int numOfLimbs): Name(name), Age(age), NumberOfLimbs(numOfLimbs)
 {
-  cout << "Actor begin play!\n";
+  //you can still call things from inside this body, for example:
+  Report();
 }
 
-void Pawn::BeginPlay()
+//new constructor for Dog child class
+Dog::Dog()
 {
-  cout << "Pawn begin play!\n";
+  cout << "A DOG is born!" << endl;
 }
+
+Dog::Dog(string name, int age, int numOfLimbs)
+{
+  Animal(name, age, numOfLimbs);
+}
+
+// end  CONSTRUCTORS
+
+
+
+// FUNCTIONS -->
+
+// defining function outside of class
+void Animal::Report()
+{
+  cout << endl;
+  cout << "Name: " << Name << endl;
+  cout << "Age: " << Age << endl;
+  cout << "Number of Limbs: " << NumberOfLimbs << endl; 
+  cout << endl;
+}
+
+void Dog::Speak()
+{
+  cout << "Wau wau!" << endl;
+}
+
+// end FUNCTIONS
