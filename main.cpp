@@ -26,7 +26,7 @@ public:
   // Add a function to test casting:
   void ActorFunction()
   {
-    cout << "ActionFunction() called!\n\n";
+    cout << "ActorFunction() called!\n\n";
   }
 };
 
